@@ -60,8 +60,8 @@
     data_title: ""
     data_orientation: ""
     data_logo: "data/logo/kivy-icon-64.png"
-    data_orientation: ""
     data_author: ""
+    data_path: ""
     data_entry: None
     padding: dp(4)
     spacing: dp(8)
@@ -87,7 +87,11 @@
         LLabel:
             text: root.data_author
             color: rgba("#b4b6b7")
-            font_size: dp(11)
+            font_size: dp(10)
+        LLabel:
+            text: root.data_path
+            color: rgba("#b4b6b7")
+            font_size: dp(10)
     IconButton:
         text: ICON_PLAY
         on_release: app.start_activity(root.data_entry)
@@ -102,6 +106,15 @@ GridLayout:
         Rectangle:
             size: self.size
     TopBar
+    TextInput:
+        id: path
+        text: "Path"
+        size_hint_x: 1
+        size_hint_y: None
+        height: dp(48)
+        font_size: dp(16)
+        font_name: "data/Roboto-Medium.ttf"
+        multiline: False
     FloatLayout:
         RecycleView:
             id: rv
@@ -153,3 +166,4 @@ GridLayout:
     color: rgba("#222222FF")
     pos_hint: {'x': 0}
     width: self.texture_size[0]
+    font_size: dp(8)

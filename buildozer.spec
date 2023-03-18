@@ -36,7 +36,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma seperated e.g. requirements = sqlite3,kivy
-requirements = kivy, android
+requirements = kivy, plyer, android
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
@@ -52,7 +52,7 @@ requirements = kivy, android
 #icon.filename = %(source.dir)s/data/icon.png
 
 # (str) Supported orientation (one of landscape, portrait or all)
-orientation = portrait
+orientation = landscape, portrait
 
 # (list) List of service to declare
 #services = NAME:ENTRYPOINT_TO_PY,NAME2:ENTRYPOINT2_TO_PY
@@ -68,7 +68,7 @@ orientation = portrait
 osx.python_version = 3
 
 # Kivy version to use
-# osx.kivy_version = 1.9.1
+osx.kivy_version = 1.9.1
 
 #
 # Android specific
@@ -85,16 +85,20 @@ fullscreen = 0
 #android.presplash_color = #FFFFFF
 
 # (int) Android API to use
-# android.api = 30
+#android.api = 30
 
 # (int) Minimum API required
-#android.minapi = 9
+#android.minapi = 30
 
 # (int) Android SDK version to use
-#android.sdk = 20
+#android.sdk = 30
 
 # (str) Android NDK version to use
-# android.ndk = 25
+android.ndk = 25b
+
+# (list) Permissions
+# (See https://python-for-android.readthedocs.io/en/latest/buildoptions/#build-options-1 for all the supported syntaxes and properties)
+android.permissions = android.permission.INTERNET, android.permission.WRITE_EXTERNAL_STORAGE, android.permission.READ_EXTERNAL_STORAGE, android.permission.MANAGE_EXTERNAL_STORAGE
 
 # (bool) Use --private data storage (True) or --dir public storage (False)
 #android.private_storage = True
@@ -176,7 +180,7 @@ android.manifest.launch_mode = standard
 #android.copy_libs = 1
 
 # (str) The Android arch to build for, choices: armeabi-v7a, arm64-v8a, x86
-android.archs = armeabi-v7a,arm64-v8a
+android.arch = armeabi-v7a
 
 #
 # Python for android (p4a) specific
@@ -213,6 +217,7 @@ android.archs = armeabi-v7a,arm64-v8a
 [app:android.permissions]
 READ_EXTERNAL_STORAGE
 WRITE_EXTERNAL_STORAGE
+MANAGE_EXTERNAL_STORAGE
 ACCESS_LOCATION_EXTRA_COMMANDS
 ACCESS_NETWORK_STATE
 ACCESS_NOTIFICATION_POLICY

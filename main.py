@@ -33,16 +33,17 @@ def dispatch():
         intent = activity.getIntent()
         entrypoint = intent.getStringExtra("entrypoint")
         orientation = intent.getStringExtra("orientation")
+        activity_info = autoclass('android.content.pm.ActivityInfo')
 
         if orientation == "portrait":
             # SCREEN_ORIENTATION_PORTRAIT
-            activity.setRequestedOrientation(0x1)
+            activity.setRequestedOrientation(activity_info.SCREEN_ORIENTATION_USER_PORTRAIT)
         elif orientation == "landscape":
             # SCREEN_ORIENTATION_LANDSCAPE
-            activity.setRequestedOrientation(0x0)
-        elif orientation == "sensor":
+            activity.setRequestedOrientation(activity_info.SCREEN_ORIENTATION_USER_LANDSCAPE)
+        else:
             # SCREEN_ORIENTATION_SENSOR
-            activity.setRequestedOrientation(0x4)
+            activity.setRequestedOrientation(activity_info.SCREEN_ORIENTATION_USER)
 
         if entrypoint is not None:
             try:

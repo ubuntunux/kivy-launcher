@@ -2,4 +2,5 @@
 *.pyc
 .ropeproject
 bin
-.buildozer
+.buildozer/*
+external_path.txt
