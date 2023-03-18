@@ -1,3 +1,11 @@
+forked from https://github.com/kivy/kivy-launcher
+
+Add some features:
+    - editable kivy project path
+    - no need android.txt
+    - orientation as sensor
+
+
 # Kivy Launcher
 
 (work in progress, not yet published on Google Play)
